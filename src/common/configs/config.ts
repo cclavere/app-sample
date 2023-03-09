@@ -5,7 +5,9 @@ export default (): Config => ({
         port: 3000,
     },
     cors: {
-        enabled: true,
+        origin: '*',
+        methods: ['GET', 'POST'],
+        allowedHeaders: ['Content-Type'],
     },
     swagger: {
         servers: [

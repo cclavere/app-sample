@@ -9,7 +9,9 @@ export interface NestConfig {
 }
 
 export interface CorsConfig {
-    enabled: boolean;
+    origin: string;
+    methods: string[];
+    allowedHeaders: string[];
 }
 
 export interface SwaggerConfig {

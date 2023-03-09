@@ -39,16 +39,13 @@ async function bootstrap() {
             .setVersion(swaggerConfig.version || '1.O')
             .build();
 
-        console.log('swagger config', swaggerConfig.servers);
         const document = SwaggerModule.createDocument(app, options);
 
         SwaggerModule.setup(swaggerConfig.path || 'api', app, document);
     }
 
     // CORS
-    if (corsConfig.enabled) {
-        app.enableCors();
-    }
+    app.enableCors(corsConfig);
 
     await app.listen(process.env.PORT || nestConfig.port || 3000);
 }
